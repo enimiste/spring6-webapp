@@ -2,6 +2,7 @@ package com.guru.udemy.sping6webapp.domaine;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -26,10 +27,11 @@ public class Publisher {
         this.address = address;
         this.city = city;
         this.zipCode = zipCode;
+        this.books = new HashSet<>();
     }
 
     public Publisher(String name) {
-        this.name = name;
+        this(name, null, null, null);
     }
 
     public Long getId() {

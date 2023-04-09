@@ -43,6 +43,7 @@ public class Book {
 
     public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
+        publisher.getBooks().add(this);
     }
 
     public Set<Author> getAuthors() {
