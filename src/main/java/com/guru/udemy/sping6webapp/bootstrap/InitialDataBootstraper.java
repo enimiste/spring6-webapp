@@ -47,13 +47,13 @@ public class InitialDataBootstraper implements CommandLineRunner {
         var wileySaved = publisherRepository.save(wiley);
         var addisonSaved = publisherRepository.save(addison);
 
-        ddd.addAuthor(ericSaved);
-        ddd.setPublisher(wileySaved);
-        ejb.addAuthor(rodSaved);
-        ejb.addAuthor(juergenSaved);
-        ejb.setPublisher(addisonSaved);
-        effectiveJava.addAuthor(joshuaSaved);
-        effectiveJava.setPublisher(addisonSaved);
+        dddSaved.addAuthor(ericSaved);
+        dddSaved.setPublisher(wileySaved);
+        ejbSaved.addAuthor(rodSaved);
+        ejbSaved.addAuthor(juergenSaved);
+        ejbSaved.setPublisher(addisonSaved);
+        effectiveJavaSaved.addAuthor(joshuaSaved);
+        effectiveJavaSaved.setPublisher(addisonSaved);
         bookRepository.save(dddSaved);
         bookRepository.save(ejbSaved);
         bookRepository.save(effectiveJavaSaved);
