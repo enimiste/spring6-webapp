@@ -1,5 +1,6 @@
 package com.guru.udemy.sping6webapp.domaine;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -17,6 +18,7 @@ public class Publisher {
     private String city;
     private String zipCode;
     @OneToMany(mappedBy = "publisher")
+    @JsonIgnore
     private Set<Book> books;
 
     protected Publisher() {

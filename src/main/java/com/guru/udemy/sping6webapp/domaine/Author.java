@@ -1,5 +1,6 @@
 package com.guru.udemy.sping6webapp.domaine;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -16,6 +17,7 @@ public class Author {
     private String lastName;
 
     @ManyToMany(mappedBy = "authors")
+    @JsonIgnore
     private Set<Book> books;
 
     protected Author() {
