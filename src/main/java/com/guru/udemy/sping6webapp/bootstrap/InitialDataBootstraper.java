@@ -35,28 +35,28 @@ public class InitialDataBootstraper implements CommandLineRunner {
         Publisher addison = new Publisher("Addison Wesley");
         Publisher wiley = new Publisher("Wiley Publishing");
 
-        authorRepository.save(eric);
-        authorRepository.save(rod);
-        authorRepository.save(juergen);
-        authorRepository.save(joshua);
+        var ericSaved = authorRepository.save(eric);
+        var rodSaved = authorRepository.save(rod);
+        var juergenSaved = authorRepository.save(juergen);
+        var joshuaSaved = authorRepository.save(joshua);
 
-        bookRepository.save(ddd);
-        bookRepository.save(ejb);
-        bookRepository.save(effectiveJava);
+        var dddSaved = bookRepository.save(ddd);
+        var ejbSaved = bookRepository.save(ejb);
+        var effectiveJavaSaved = bookRepository.save(effectiveJava);
 
-        publisherRepository.save(wiley);
-        publisherRepository.save(addison);
+        var wileySaved = publisherRepository.save(wiley);
+        var addisonSaved = publisherRepository.save(addison);
 
-        ddd.addAuthor(eric);
-        ddd.setPublisher(wiley);
-        ejb.addAuthor(rod);
-        ejb.addAuthor(juergen);
-        ejb.setPublisher(addison);
-        effectiveJava.addAuthor(joshua);
-        effectiveJava.setPublisher(addison);
-        bookRepository.save(ddd);
-        bookRepository.save(ejb);
-        bookRepository.save(effectiveJava);
+        ddd.addAuthor(ericSaved);
+        ddd.setPublisher(wileySaved);
+        ejb.addAuthor(rodSaved);
+        ejb.addAuthor(juergenSaved);
+        ejb.setPublisher(addisonSaved);
+        effectiveJava.addAuthor(joshuaSaved);
+        effectiveJava.setPublisher(addisonSaved);
+        bookRepository.save(dddSaved);
+        bookRepository.save(ejbSaved);
+        bookRepository.save(effectiveJavaSaved);
 
         System.out.println("Authors count : " + authorRepository.count());
         System.out.println("Books count : " + bookRepository.count());
