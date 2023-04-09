@@ -18,6 +18,10 @@ public class Book {
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinTable(name = "book_publisher", joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "publisher_id"))
+    private Publisher publisher;
 
     protected Book() {
     }
@@ -31,6 +35,14 @@ public class Book {
     public void addAuthor(Author author) {
         this.authors.add(author);
         author.getBooks().add(this);
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     public Set<Author> getAuthors() {
@@ -87,6 +99,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", authors=" + authors +
+                ", publisher=" + publisher +
                 '}';
     }
 }

@@ -2,6 +2,7 @@ package com.guru.udemy.sping6webapp.bootstrap;
 
 import com.guru.udemy.sping6webapp.domaine.Author;
 import com.guru.udemy.sping6webapp.domaine.Book;
+import com.guru.udemy.sping6webapp.domaine.Publisher;
 import com.guru.udemy.sping6webapp.repositories.AuthorRepository;
 import com.guru.udemy.sping6webapp.repositories.BookRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -27,6 +28,9 @@ public class InitialDataBootstraper implements CommandLineRunner {
         Book ddd = new Book("Domain Driven Design", "123456");//Addison Wesley
         Book ejb = new Book("Expert One-on-One JEE without EJB", "789AB");//Wiley Publishing
         Book effectiveJava = new Book("Effective Java", "4462JH");//Addison Wesley
+
+        Publisher addison = new Publisher("Addison Wesley");
+        Publisher wiley = new Publisher("Wiley Publishing");
 
         authorRepository.save(eric);
         authorRepository.save(rod);
