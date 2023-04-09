@@ -8,3 +8,8 @@
 #    username: root
 #    password: root
 #    url: "jdbc:mysql://localhost:3306/guru_spring6"
+
+spring:
+  h2:
+    console:
+      enabled: true
