@@ -5,6 +5,7 @@ import com.guru.udemy.sping6webapp.domaine.Book;
 import com.guru.udemy.sping6webapp.domaine.Publisher;
 import com.guru.udemy.sping6webapp.repositories.AuthorRepository;
 import com.guru.udemy.sping6webapp.repositories.BookRepository;
+import com.guru.udemy.sping6webapp.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,10 +13,12 @@ import org.springframework.stereotype.Component;
 public class InitialDataBootstraper implements CommandLineRunner {
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
+    private final PublisherRepository publisherRepository;
 
-    public InitialDataBootstraper(BookRepository bookRepository, AuthorRepository authorRepository) {
+    public InitialDataBootstraper(BookRepository bookRepository, AuthorRepository authorRepository, PublisherRepository publisherRepository) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
+        this.publisherRepository = publisherRepository;
     }
 
     @Override
@@ -41,16 +44,23 @@ public class InitialDataBootstraper implements CommandLineRunner {
         bookRepository.save(ejb);
         bookRepository.save(effectiveJava);
 
+        publisherRepository.save(wiley);
+        publisherRepository.save(addison);
+
         ddd.addAuthor(eric);
+        ddd.setPublisher(wiley);
         ejb.addAuthor(rod);
         ejb.addAuthor(juergen);
+        ejb.setPublisher(addison);
         effectiveJava.addAuthor(joshua);
+        effectiveJava.setPublisher(addison);
         bookRepository.save(ddd);
         bookRepository.save(ejb);
         bookRepository.save(effectiveJava);
 
         System.out.println("Authors count : " + authorRepository.count());
         System.out.println("Books count : " + bookRepository.count());
+        System.out.println("Publishers count : " + bookRepository.count());
         bookRepository.findAll()
                 .forEach(System.out::println);
     }
