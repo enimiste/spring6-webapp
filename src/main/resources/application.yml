@@ -10,6 +10,8 @@
 #    url: "jdbc:mysql://localhost:3306/guru_spring6"
 
 spring:
+  datasource:
+    url: "jdbc:h2:mem:e6df4e82-93aa-429e-8d92-bbb41966b21f"
   h2:
     console:
       enabled: true
