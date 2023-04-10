@@ -62,6 +62,11 @@ public class Author {
         this.lastName = lastName;
     }
 
+    @Transient
+    public String getFullName() {
+        return "%s %s".formatted(firstName, lastName);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
